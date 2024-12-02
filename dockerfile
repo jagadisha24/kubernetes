@@ -1,1 +1,9 @@
-nmnm hj jhjnm   
+FROM alpine
+
+COPY 
+
+MENTAINENECE
+ENTRYPOINT 
+LABEL 
+
+RUN 
