@@ -1,0 +1,33 @@
+pipelie {
+    agent any
+    tools {
+        maven 'maven'
+        java  'jdk11'
+        sonar 'sonar-scanner'
+        npm 'npm'
+    
+    }  
+
+    stages {
+        stage {'git checkout'}
+
+    steps{
+        branch= 'main', url= 'https://github.com/jagadisha24/kubernetes.git'
+    }
+     stage {'build and tag'}
+    
+    steps {
+        'docker build -t jaga/c1 .'
+
+}
+stage {'contanirazation'}
+
+steps{
+    'docker run -it -d -p 9000:80 --name jaga/c1:tag'
+
+}
+stage {'pust to docker registry'}
+
+steps{
+    'docker push jaga/c1:tag'
+}
