@@ -2,14 +2,20 @@ provider "aws" {
 
 region = "ap-south-1"
 
-aws access_key = "  "
+ access_key = "  "
 
-aws secret_access_key = "  "
+secret_access_key = "  "
 
-resources = "aws_instances"
+resources = "aws_instances" "instance_name"
 
 AMI_iD = " "
+
+instance_type = "t2.medium"
+
 seurity_group "default"
 
-storage = "8gb"
+user data = file {"docker.sh"}
+
+Name = "k8sserver"
+
 }
